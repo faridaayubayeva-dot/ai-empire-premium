@@ -20,9 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll("a, button").forEach(function (element) {
     const text = (element.textContent || "").trim().toUpperCase();
 
-    if (text.includes("ORDER NOW") ||
-        text.includes("CREATE SOMETHING SIMILAR")) {
-
+if (text.includes("ORDER NOW") ||
+text.includes("CREATE SOMETHING SIMILAR") ||
+text.includes("PREPARE PROJECT REQUEST")) {
       if (element.tagName === "A") {
         element.href = formUrl;
         element.target = "_blank";
