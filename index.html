@@ -49,17 +49,32 @@ document.addEventListener('keydown',e=>{
 });
 document.getElementById('year').textContent=new Date().getFullYear();
 
-document.getElementById('orderForm').addEventListener('submit',e=>{
+
+document.getElementById('orderForm').addEventListener('submit', e => {
   e.preventDefault();
 
-  const formUrl='https://docs.google.com/forms/d/e/1FAIpQLSeeF5wznRGMlzMTyFjWGtR5PmMw93Kf06q6FEfsvMZHmOVrzg/viewform';
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const company = document.getElementById('company').value.trim();
+  const details = document.getElementById('details').value.trim();
+  const seconds = document.getElementById('duration').value;
 
-  const status=document.getElementById('formMessage');
-  status.style.display='block';
-  status.textContent='Please complete and submit your project request in Google Forms.';
+  const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeeF5wznRGMlzMTyFjWGtR5PmMw93Kf06q6FEfsvMZHmOVrzg/viewform';
 
-  window.location.href=formUrl;
+  const params = new URLSearchParams({
+    'usp': 'pp_url',
+    'entry.1454863922': name,
+    'entry.135844222': email,
+    'entry.2049343492': company,
+    'entry.872814597': seconds + ' seconds',
+   'entry.1574859985': '$100–$250',
+'entry.1547159653': details,
+'entry.1564532835': details
+  });
+
+  window.location.href = formUrl + '?' + params.toString();
 });
+
 </script>
 
 
